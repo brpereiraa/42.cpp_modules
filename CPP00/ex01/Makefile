@@ -5,7 +5,7 @@ OBJ = $(SRC:.cpp=.o)
 
 CPPFLAGS = -Wall -Werror -Wextra -std=c++98
 
-all: $(NAME);
+all: $(NAME)
 
 $(NAME): $(OBJ)
 	c++ $(CPPFLAGS) $(OBJ) -o $(NAME)
