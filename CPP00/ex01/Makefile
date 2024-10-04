@@ -18,7 +18,7 @@ re: fclean all
 clean:
 	rm -fr $(OBJ)
 
-fclean: clean
-	rm -f $(NAME);
+fclean:	clean
+	rm -f $(NAME)
 
 SILENT:
