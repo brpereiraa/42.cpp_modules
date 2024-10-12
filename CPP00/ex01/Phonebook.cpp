@@ -24,6 +24,10 @@ void Phonebook::add(){
 	std::getline(std::cin, number); 
 	std::cout << std::endl;
 
+	if(fname.empty() || lname.empty() || nickname.empty() || secret.empty() || number.empty()){
+		std::cout << "Empty fields detected. Contact not added" << std::endl;
+		return ;
+	}
 	Phonebook::insert(new Contact(fname, lname, nickname, secret, number));	
 }
 
@@ -31,13 +35,13 @@ void Phonebook::search(){
 	std::cout << std::setw(10) << "Index" << "|";
 	std::cout << std::setw(10) << "First Name" << "|";
 	std::cout << std::setw(10) << "Last name" << "|";
-	std::cout << std::setw(10) << "Nickname" << "|";
+	std::cout << std::setw(10) << "Nickname" << "|" << std::endl;
 
 	for (int i=0; i<8; i++){
 		std::cout << std::setw(10) << i << "|";
-		std::cout << this->contacts[i].get_fname() << "|";
-		std::cout << this->contacts[i].get_lname() << "|";
-		std::cout << this->contacts[i].get_nickname() << "|";
+		std::cout << std::setw(10) << this->contacts[i].get_fname() << "|";
+		std::cout << std::setw(10) << this->contacts[i].get_lname() << "|";
+		std::cout << std::setw(10) << this->contacts[i].get_nickname() << "|";
 		std::cout << std::endl;
 	}
 }
