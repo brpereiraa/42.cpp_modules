@@ -1,4 +1,3 @@
-#include "./Contact.hpp"
 #include "./Phonebook.hpp"
 
 int main(int ac, char **av)
@@ -8,6 +7,9 @@ int main(int ac, char **av)
 
 	Phonebook phonebook;
 
-	phonebook.add();
+	for(int i=0; i<3; i++){
+		phonebook.add();
+	}
+	phonebook.search();
 	return (0);
 }

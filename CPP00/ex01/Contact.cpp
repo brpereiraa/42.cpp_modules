@@ -2,7 +2,7 @@
 
 Contact::Contact(){};
 
-Contact::Contact(std::string fname, std::string lname, std::string nickname, std::string secret, int number){
+Contact::Contact(std::string fname, std::string lname, std::string nickname, std::string secret, std::string number){
 	this->fname = fname;
 	this->lname = lname;
 	this->nickname = nickname;
@@ -10,8 +10,8 @@ Contact::Contact(std::string fname, std::string lname, std::string nickname, std
 	this->number = number;
 }
 
-std::string Contact::get_fname(){ return (this->fname); };
-std::string Contact::get_lname(){ return (this->lname); };
-std::string Contact::get_nickname(){ return (this->nickname); };
-std::string Contact::get_secret(){ return (this->secret); };
-int Contact::get_number(){ return (this->number); };
+std::string	Contact::get_fname(){ return (this->fname); };
+std::string	Contact::get_lname(){ return (this->lname); };
+std::string	Contact::get_nickname(){ return (this->nickname); };
+std::string	Contact::get_secret(){ return (this->secret); };
+std::string	Contact::get_number(){ return (this->number); };

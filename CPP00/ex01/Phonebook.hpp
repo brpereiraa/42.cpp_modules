@@ -1,9 +1,16 @@
+#include "./Contact.hpp"
+#include <iomanip>
 
 class Phonebook {
 	private:
+		Contact contacts[8];
+		int index;
 
 	public:
-		// Contact contacts[8];
-		void add();
-		void search();
+		Phonebook();
+
+		void	insert(Contact *contact);
+		void	add();
+		void	search();
+		void	exit();
 };
