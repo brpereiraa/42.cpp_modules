@@ -1,6 +1,9 @@
 #include "./Fixed.hpp"
 
-Fixed::Fixed(){ std::cout << "Default constructor called" << std::endl; };
+Fixed::Fixed(){ 
+	this->value = 0;
+	std::cout << "Default constructor called" << std::endl;
+};
 
 Fixed::Fixed(Fixed &fixed){
 	std::cout << "Copy constructor called" << std::endl;

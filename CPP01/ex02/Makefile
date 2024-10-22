@@ -1,11 +1,9 @@
-NAME = form
+NAME = brain
 
-SRC = ./main.cpp ./Fixed.cpp
+SRC = ./main.cpp
 OBJ = $(SRC:.cpp=.o)
 
-CPPFLAGS = -Wall -Wextra -Werror -std=c++98
-
-all: $(NAME)
+ALL: $(NAME)
 
 $(NAME): $(OBJ)
 	c++ $(CPPFLAGS) $(OBJ) -o $(NAME)
@@ -15,11 +13,11 @@ $(NAME): $(OBJ)
 
 re: fclean all
 
-clean:
-	rm -fr $(OBJ)
-
 fclean: clean
 	rm -fr $(NAME)
 
-SILENT:	
+clean:
+	rm -fr $(OBJ)
+
+SILENT:
 
