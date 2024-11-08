@@ -9,8 +9,10 @@ class Phonebook {
 	public:
 		Phonebook();
 
-		void	insert(Contact *contact);
-		void	add();
-		void	search();
-		void	exit();
+		void		insert(Contact *contact);
+		void		add();
+		void		search();
+		void		exit();
+		std::string	getInput(std::string var);
+		void		printString(std::string msg);
 };
