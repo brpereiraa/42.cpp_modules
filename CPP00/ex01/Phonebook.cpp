@@ -23,6 +23,13 @@ void Phonebook::add(){
 		return ;
 	}
 
+	for (size_t i=0; i<number.length(); i++){
+		if (!isdigit(number[i])){
+			std::cout << "Please, only numbers in the number input. Contact not created." << std::endl;
+			return ;
+		}
+	}
+
 	std::cout << std::endl;
 	Phonebook::insert(new Contact(fname, lname, nickname, secret, number));	
 }
@@ -47,10 +54,10 @@ void Phonebook::search(){
 
 	std::cout << "Choose an index for more information: "; 
 	std::cin >> input; 
-	std::cin.ignore();
 
-	if (input < 0 || input > 7){
+	if (input < 0 || input > 7 || std::cin.eof() || std::cin.fail()){
 		std::cout << "Invalid input..." << std::endl;
+		std::cin.clear();
 		return ;
 	}
 
