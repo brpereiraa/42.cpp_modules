@@ -15,6 +15,8 @@ int main(int ac, char **av)
 			break;
 		}
 
+    std::cin.clear();
+
 		std::cout << "Select desired command:" << std::endl;
 		std::cout << "ADD" << std::endl;
 		std::cout << "SEARCH" << std::endl;
