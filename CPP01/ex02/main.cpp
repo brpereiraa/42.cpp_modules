@@ -11,5 +11,11 @@ int main(int ac, char **av){
 	std::cout << "Mem address: " << &var << std::endl;
 	std::cout << "Mem pointer: " << ptr << std::endl;
 	std::cout << "Ref pointer: " << &ref << std::endl;
+
+	std::cout << std::endl;
+
+	std::cout << "String: " << var << std::endl;
+	std::cout << "Ptr value: " << *ptr << std::endl;
+	std::cout << "Ref value: " << ref << std::endl;
 	return (0);
 }
