@@ -72,7 +72,7 @@ void Phonebook::search() {
 
   std::cin.ignore(1, '\n');
 
-  if (input < 0 || input > 7 || std::cin.eof() || std::cin.fail()) {
+  if (input < 0 || input > 7 || std::cin.eof() || std::cin.fail() || this->contacts[input].get_fname().empty()) {
     std::cout << "Invalid input..." << std::endl;
     std::cin.clear();
     return;
