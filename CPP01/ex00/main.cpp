@@ -10,6 +10,7 @@ int main(int ac, char **av)
 	
 	juan->announce();
 	zombie.randomChump("zombie1");
+  delete juan;
 
 	return (0);
 }
