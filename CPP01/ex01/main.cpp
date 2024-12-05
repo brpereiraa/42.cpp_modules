@@ -23,5 +23,7 @@ int main(int ac, char **av)
 	horde = zombie.zombieHorde(5, "juan");
 	for(int i=0; i<5; i++)
 		horde[i].announce();
+
+  delete[] horde;
 	return (0);
 }

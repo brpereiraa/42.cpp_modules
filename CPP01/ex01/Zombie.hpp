@@ -8,6 +8,7 @@ class Zombie {
 	public:
 		Zombie();
 		Zombie(std::string name);
+    ~Zombie();
 
 		void	announce(void);
 		Zombie	*zombieHorde(int N, std::string name);
