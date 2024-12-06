@@ -1,7 +1,7 @@
 #include <iostream>
-#include "./Weapon.hpp>
+#include "./Weapon.hpp"
 
-class HumanB(){
+class HumanB{
 	private:
 		Weapon		weapon;
 		std::string	name;
@@ -12,4 +12,4 @@ class HumanB(){
 		HumanB(HumanB &copy);
 
 		void	attack();
-}
+};
