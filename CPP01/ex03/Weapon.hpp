@@ -1,3 +1,6 @@
+#ifndef WEAPON_H
+# define WEAPON_H
+
 #include <iostream>
 
 class Weapon{
@@ -6,10 +9,11 @@ class Weapon{
 
 	public:
 		Weapon();
-		~Weapon();
 		Weapon(std::string type);
 
 		std::string	getType();
 		void		setType(std::string type);
 
 };
+
+#endif

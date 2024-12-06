@@ -1,4 +1,7 @@
 #include <string>
+#include <cstdlib>
+#include <iostream>
+#include <ostream>
 
 class Harl {
   private:

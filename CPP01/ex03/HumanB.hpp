@@ -1,3 +1,6 @@
+#ifndef HUMANB_H
+# define HUMANB_H
+
 #include <iostream>
 #include "./Weapon.hpp"
 
@@ -7,9 +10,11 @@ class HumanB{
 		std::string	name;
 	
 	public:
-		HumanB();
-		~HumanB();
+		HumanB(std::string name);
 		HumanB(HumanB &copy);
 
+        void    setWeapon(Weapon weapon);
 		void	attack();
 };
+
+#endif
