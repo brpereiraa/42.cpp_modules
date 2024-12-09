@@ -20,10 +20,10 @@ int main(int ac, char **av)
 	Zombie zombie;
 	Zombie *horde;
 
-	horde = zombie.zombieHorde(5, "juan");
+	horde = zombieHorde(5, "juan");
 	for(int i=0; i<5; i++)
 		horde[i].announce();
 
-  delete[] horde;
+	delete[] horde;
 	return (0);
 }

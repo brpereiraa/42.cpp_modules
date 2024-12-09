@@ -9,6 +9,12 @@ void Harl::complain(std::string level)
 {
   void (Harl::*Fcts[4])() = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
 
-  int lvl = atoi(level.c_str());
+  int lvl = atoi(level.c_str()) - 1; 
+
+  if (lvl < 0 || lvl > 3 ){
+    std::cout << "Invalid message. Please select a number from 1 to 4" << std::endl;
+    return ;
+  }
+
   (this->*Fcts[lvl])();
 }
