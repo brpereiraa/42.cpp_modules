@@ -17,6 +17,6 @@ class Zombie {
 };
 
 void	randomChump(std::string);
-Zombie	*newZombie(std::string);
+Zombie	*newZombie(std::string name);
 
 #endif

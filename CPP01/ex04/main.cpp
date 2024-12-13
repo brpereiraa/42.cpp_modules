@@ -12,8 +12,8 @@ void replaceString(std::string &file, std::string &s1, std::string &s2)
   }
 
   std::string n_file = file;
-  std::ofstream oFile(n_file.c_str());
   n_file.append(".replace");
+  std::ofstream oFile(n_file.c_str());
 
   if (oFile.fail()){
     std::cout << "Failed to create new file" << std::endl;
