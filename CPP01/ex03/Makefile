@@ -10,8 +10,8 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	c++ $(CPPFLAGS) $(OBJ) -o $(NAME)
 
-$.o: $.cpp
-	c++ $(CPPFLAGS) $(OBJ) -o $(NAME)
+%.o: %.cpp
+	c++ $(CPPFLAGS) -c $< -o $@
 
 re: fclean all
 

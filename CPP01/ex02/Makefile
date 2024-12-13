@@ -1,9 +1,11 @@
-NAME = brain
+NAME = strings
 
 SRC = ./main.cpp
 OBJ = $(SRC:.cpp=.o)
 
-ALL: $(NAME)
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98
+
+all: $(NAME)
 
 $(NAME): $(OBJ)
 	c++ $(CPPFLAGS) $(OBJ) -o $(NAME)

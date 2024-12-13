@@ -4,10 +4,13 @@ SRCS = main.cpp
 
 OBJS = ${SRCS:.cpp=.o}
 
-CPPFLAGS = -Wall -Werror -Wextra -pedantic -std=c++98
+CPPFLAGS = -Wall -Werror -Wextra -std=c++98
 
 $(NAME): ${OBJS}
 		c++ ${CPPFLAGS} ${OBJS} -o ${NAME}
+
+%.o: %.cpp
+	c++ $(CPPFLAGS) -c $< -o $@
 		
 all: ${NAME}
 
@@ -19,4 +22,4 @@ fclean: clean
 
 re: fclean all
 
-.SILENT:
+# .SILENT:
