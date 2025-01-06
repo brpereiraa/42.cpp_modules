@@ -1,8 +1,11 @@
+#ifndef CLAPTRAP_H
+# define CLAPTRAP_H
+
 #include <string>
 #include <iostream>
 
 class ClapTrap {
-	private:
+	protected:
 		std::string name;
 		int			hpoints;
 		int			epoints;
@@ -19,3 +22,5 @@ class ClapTrap {
 		void beRepaired(unsigned int amount);
 
 };
+
+#endif

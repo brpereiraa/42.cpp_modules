@@ -3,25 +3,22 @@
 int main(void){
 	ClapTrap A("Juan");
 	ClapTrap B("Carlos");
+	ClapTrap C = B;
 
-	A.info();
 
-	A.attack(B.get_name());
-	A.info();
+	A.attack("Carlos");
+	A.beRepaired(10);
+	A.takeDamage(10);
 
-	A.takeDamage(4);
-	A.info();
+	A.attack("Carlos");
+	A.attack("Carlos");
+	A.attack("Carlos");
+	A.attack("Carlos");
+	A.attack("Carlos");
+	A.attack("Carlos");
+	A.attack("Carlos");
+	A.attack("Carlos");
+	A.attack("Carlos");
 
-	//Out of energy test
-	A.attack(B.get_name());
-	A.attack(B.get_name());
-	A.attack(B.get_name());
-	A.attack(B.get_name());
-	A.attack(B.get_name());
-	A.attack(B.get_name());
-	A.attack(B.get_name());
-	A.attack(B.get_name());
-	A.attack(B.get_name());
-	A.attack(B.get_name());
 	return  (0);
 }
