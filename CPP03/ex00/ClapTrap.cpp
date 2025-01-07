@@ -20,7 +20,7 @@ ClapTrap::ClapTrap(ClapTrap &cp){
 }
 
 ClapTrap &ClapTrap::operator=(const ClapTrap &cp){
-	if (this !=	&cp){
+	if (this != &cp){
 		this->name = cp.name;
 		this->hpoints = cp.hpoints;
 		this->apoints = cp.apoints;
@@ -31,7 +31,7 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &cp){
 }
 
 void ClapTrap::attack(const std::string &target){
-	if (this->epoints == 0){
+	if (this->epoints == 0 || this->hpoints == 0 ){
 		std::cout << "ClapTrap has no energy points left to attack" << std::endl;
 		return ;
 	}
@@ -41,11 +41,16 @@ void ClapTrap::attack(const std::string &target){
 }
 
 void ClapTrap::takeDamage(unsigned int amount){
+	if (this->hpoints == 0 ){
+		std::cout << "This ClapTrap has no hp points remaining to be taken" << std::endl;
+		return ;
+	}
+
 	std::cout << "ClapTrap " << this->name << " has taken " << amount << " amount of damage" << std::endl; 
 }
 
 void ClapTrap::beRepaired(unsigned int amount){
-	if (this->epoints == 0){
+	if (this->epoints == 0 || this->hpoints == 0){
 		std::cout << "ClapTrap has no energy points left to repair itself" << std::endl;
 		return ;
 	}
