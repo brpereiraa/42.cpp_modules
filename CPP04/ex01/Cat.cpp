@@ -1,10 +1,14 @@
 #include "./Cat.hpp"
 
 Cat::Cat(){
+    brain = new Brain();
+
     std::cout << "Default constructor for class Cat has been called" << std::endl;
 }
 
 Cat::~Cat(){
+    delete brain;
+
     std::cout << "Default destructor for class Cat has been called" << std::endl;
 }
 
