@@ -1,16 +1,22 @@
-#include <iostream>
+#ifndef FIXED
+# define FIXED
+
+#include "iostream"
+#include "string"
 
 class Fixed {
-	private:
-		static const int	fbits = 8;
-		int			value;
+    private:
+        int fvalue;
+        static const int bits = 8;
 
-	public:
-		Fixed();
-		~Fixed();
-		Fixed(Fixed &fixed);
-		Fixed& operator=(const Fixed &f);
+    public:
+        Fixed();
+        ~Fixed();
+        Fixed(Fixed &cp);
+        Fixed &operator=(const Fixed &cp);
 
-		int	getRawBits();
-		void	setRawBits(int value);
+        int getRawBits(void) const;
+        void setRawBits(int nbr);
 };
+
+#endif
