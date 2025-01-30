@@ -16,7 +16,7 @@ class Fixed {
         Fixed &operator=(const Fixed &cp);
 
         int getRawBits(void) const;
-        void setRawBits(int nbr);
+        void setRawBits(int const nbr);
 };
 
 #endif

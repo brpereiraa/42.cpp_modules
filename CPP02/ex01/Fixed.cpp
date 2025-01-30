@@ -1,5 +1,7 @@
 #include "./Fixed.hpp"
 
+
+//Constructor------------
 Fixed::Fixed(){
     std::cout << "Default constructor called" << std::endl;
     this->fvalue = 0;
@@ -20,6 +22,12 @@ Fixed::Fixed(const Fixed &cp){
     *this = cp;
 }
 
+Fixed::~Fixed(){
+    std::cout << "Destructor called" << std::endl;
+}
+
+
+//Operator Overload------------
 Fixed &Fixed::operator=(const Fixed &cp){
     if (this != &cp)
         this->fvalue = cp.getRawBits();
@@ -33,10 +41,8 @@ std::ostream &operator<<(std::ostream &out, const Fixed &cp){
     return (out);
 }
 
-Fixed::~Fixed(){
-    std::cout << "Destructor called" << std::endl;
-}
 
+//Member Function------------
 float Fixed::toFloat(void) const {
     return (((float)this->fvalue / (float)(1 << Fixed::bits)));
 }

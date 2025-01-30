@@ -16,6 +16,7 @@ class Fixed {
         Fixed(const int nbr);
         Fixed(const float nbr);
         ~Fixed();
+        
         Fixed &operator=(const Fixed &cp);
 
         float   toFloat(void) const;
