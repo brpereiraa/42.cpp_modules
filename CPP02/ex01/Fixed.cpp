@@ -9,12 +9,12 @@ Fixed::Fixed(){
 
 Fixed::Fixed(const int nbr){
     this->fvalue = (nbr << Fixed::bits);
-    std::cout << "Constructor called" << std::endl;
+    std::cout << "Int constructor called" << std::endl;
 }
 
 Fixed::Fixed(const float nbr){
     this->fvalue = roundf(nbr * (1 << Fixed::bits));
-    std::cout << "Constructor called" << std::endl;
+    std::cout << "Float constructor called" << std::endl;
 }
 
 Fixed::Fixed(const Fixed &cp){
