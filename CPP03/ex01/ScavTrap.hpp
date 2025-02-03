@@ -14,7 +14,7 @@ class ScavTrap: ClapTrap {
 		ScavTrap(ScavTrap &cp);
 		~ScavTrap();
 		
-		void attack(std::string &name);
+		void attack(const std::string &name);
 		void guardGate();
 };
 

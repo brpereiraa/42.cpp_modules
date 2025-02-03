@@ -26,8 +26,13 @@ ScavTrap::~ScavTrap(){
 	std::cout << "ScavTrap " << this->name << " has been deleted" << std::endl;
 }
 
-void ScavTrap::attack(std::string &name){
-	std::cout << "ScavTrap attacks" << this->name << ", causing " << this->apoints << " amounts of damage" << std::endl;
+void ScavTrap::attack(const std::string &name){
+	if (this->epoints == 0 || this->hpoints == 0 ){
+		std::cout << "ScavTrap has no energy points left to attack" << std::endl;
+		return ;
+	}
+	std::cout << "ScavTrap attacks" << name << ", causing " << this->apoints << " amounts of damage" << std::endl;
+	this->epoints--;
 }
 
 void ScavTrap::guardGate(){

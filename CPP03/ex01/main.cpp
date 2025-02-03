@@ -2,9 +2,9 @@
 #include "./ScavTrap.hpp"
 
 int main(void){
-	// ClapTrap A("Juan");
+	ClapTrap A("Juan");
 	ScavTrap B("Carlos");
-	// ScavTrap C = B;
+	ScavTrap C = B;
 
 
 	return  (0);

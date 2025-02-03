@@ -1,5 +1,13 @@
 #include "./ClapTrap.hpp"
 
+ClapTrap::ClapTrap(){
+	this->name = "Default";
+	this->hpoints = 10;
+	this->epoints = 0;
+	this->apoints = 0;
+	std::cout << "ClapTrap named 'Default' has been created." << std::endl;
+}
+
 ClapTrap::ClapTrap(std::string name){
 	this->name = name;
 	this->hpoints = 10;
@@ -47,6 +55,7 @@ void ClapTrap::takeDamage(unsigned int amount){
 	}
 
 	std::cout << "ClapTrap " << this->name << " has taken " << amount << " amount of damage" << std::endl; 
+	this->hpoints -= amount;
 }
 
 void ClapTrap::beRepaired(unsigned int amount){
@@ -56,4 +65,5 @@ void ClapTrap::beRepaired(unsigned int amount){
 	}
 	std::cout << "ClapTrap " << this->name << " has been repaired " << amount << " health points" << std::endl; 
 	this->epoints--;
+	this->hpoints += amount;
 }
