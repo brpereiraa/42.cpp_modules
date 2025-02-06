@@ -18,9 +18,14 @@ class ClapTrap {
 		virtual ~ClapTrap();
 		ClapTrap &operator=(const ClapTrap &cp);
 
-		virtual void attack(const std::string &target);
+		void attack(const std::string &target);
 		void takeDamage(unsigned int amount);
 		void beRepaired(unsigned int amount);
+
+		std::string	getName();
+		int 		getHPoints();
+		int			getEPoints();
+		int			getAPoints();
 
 };
 

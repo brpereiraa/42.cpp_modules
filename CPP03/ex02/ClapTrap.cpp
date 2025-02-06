@@ -1,12 +1,11 @@
 #include "./ClapTrap.hpp"
 
 ClapTrap::ClapTrap(){
-	this->name = "default";
+	this->name = "Default";
 	this->hpoints = 10;
+	this->epoints = 0;
 	this->apoints = 0;
-	this->epoints = 10;
-
-	std::cout << "Default constructor for claptrap called" << std::endl;
+	std::cout << "ClapTrap named 'Default' has been created." << std::endl;
 }
 
 ClapTrap::ClapTrap(std::string name){
@@ -28,8 +27,17 @@ ClapTrap::ClapTrap(ClapTrap &cp){
 	std::cout << "ClapTrap " << this->name << " has been created with copy constructor" << std::endl;
 }
 
+//-------------------------------------
+
+std::string ClapTrap::getName(){ return (this->name); }
+int ClapTrap::getHPoints(){ return (this->hpoints); }
+int ClapTrap::getEPoints(){ return (this->epoints); }
+int ClapTrap::getAPoints(){ return (this->apoints); }
+
+//-------------------------------------
+
 ClapTrap &ClapTrap::operator=(const ClapTrap &cp){
-	if (this !=	&cp){
+	if (this != &cp){
 		this->name = cp.name;
 		this->hpoints = cp.hpoints;
 		this->apoints = cp.apoints;
@@ -50,19 +58,23 @@ void ClapTrap::attack(const std::string &target){
 }
 
 void ClapTrap::takeDamage(unsigned int amount){
-	if (this->hpoints == 0){
+	if (this->hpoints == 0 ){
 		std::cout << "This ClapTrap has no hp points remaining to be taken" << std::endl;
+		return ;
 	}
-	std::cout << "ClapTrap " << this->name << " has taken " << amount << " amount of damage" << std::endl; 
 
 	this->hpoints -= amount;
+	if (this->hpoints < 0)
+		this->hpoints = 0;
+	std::cout << "ClapTrap " << this->name << " has taken " << amount << " amount of damage. It has " << this->hpoints << " hp remaining." << std::endl; 
 }
 
 void ClapTrap::beRepaired(unsigned int amount){
-	if (this->epoints == 0 || this->hpoints == 0){
+	if (this->epoints == 0){
 		std::cout << "ClapTrap has no energy points left to repair itself" << std::endl;
 		return ;
 	}
-	std::cout << "ClapTrap " << this->name << " has been repaired " << amount << " health points" << std::endl; 
 	this->epoints--;
+	this->hpoints += amount;
+	std::cout << "ClapTrap " << this->name << " has been repaired " << amount << " health points. It has " << this->hpoints << " hp remaining." << std::endl; 
 }
