@@ -18,7 +18,7 @@ class ClapTrap {
 		virtual ~ClapTrap();
 		ClapTrap &operator=(const ClapTrap &cp);
 
-		void attack(const std::string &target);
+		virtual void attack(const std::string &target);
 		void takeDamage(unsigned int amount);
 		void beRepaired(unsigned int amount);
 
@@ -26,6 +26,9 @@ class ClapTrap {
 		int 		getHPoints();
 		int			getEPoints();
 		int			getAPoints();
+
+		void		setEpoints(int points);
+		void		setHpoints(int points);
 
 };
 

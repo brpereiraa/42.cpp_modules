@@ -3,7 +3,7 @@
 ClapTrap::ClapTrap(){
 	this->name = "Default";
 	this->hpoints = 10;
-	this->epoints = 0;
+	this->epoints = 10;
 	this->apoints = 0;
 	std::cout << "ClapTrap named 'Default' has been created." << std::endl;
 }
@@ -34,6 +34,9 @@ int ClapTrap::getHPoints(){ return (this->hpoints); }
 int ClapTrap::getEPoints(){ return (this->epoints); }
 int ClapTrap::getAPoints(){ return (this->apoints); }
 
+void ClapTrap::setEpoints(int points) {  this->epoints = points; }
+void ClapTrap::setHpoints(int points) {  this->hpoints = points; }
+
 //-------------------------------------
 
 ClapTrap &ClapTrap::operator=(const ClapTrap &cp){
@@ -48,13 +51,16 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &cp){
 }
 
 void ClapTrap::attack(const std::string &target){
-	if (this->epoints == 0 || this->hpoints == 0 ){
+	if (this->epoints == 0){
 		std::cout << "ClapTrap has no energy points left to attack" << std::endl;
+		return ;
+	}
+	if (this->hpoints == 0 ){
+		std::cout << "ClapTrap has no hit points left to attack" << std::endl;
 		return ;
 	}
 	std::cout << "ClapTrap " << this->name << " attacks " << target << ", causing " << this->apoints << " points of damage" << std::endl; 
 	this->epoints--;
-
 }
 
 void ClapTrap::takeDamage(unsigned int amount){
@@ -70,8 +76,12 @@ void ClapTrap::takeDamage(unsigned int amount){
 }
 
 void ClapTrap::beRepaired(unsigned int amount){
-	if (this->epoints == 0){
+	if (this->epoints == 0 ){
 		std::cout << "ClapTrap has no energy points left to repair itself" << std::endl;
+		return ;
+	}
+	if (this->hpoints == 0 ){
+		std::cout << "ClapTrap has no hit points left to repair itself" << std::endl;
 		return ;
 	}
 	this->epoints--;

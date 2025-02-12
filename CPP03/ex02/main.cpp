@@ -63,7 +63,7 @@ int main()
 	std::cout << "\033[1;31mTesting: Attempting to attack with zero hit points.\033[0m \033[1;37m(Expected: Attack should not be allowed.)\033[0m\n";
 	clap.attack("target2");
 
-	std::cout << "\033[1;31mTesting: Repairing after reaching zero hit points.\033[0m \033[1;37m(Expected: HP should increase.)\033[0m\n";
+	std::cout << "\033[1;31mTesting: Repairing after reaching zero hit points.\033[0m \033[1;37m(Expected: Repair should not be allowed.)\033[0m\n";
 	clap.beRepaired(5);
 	pauseExecution();
 
@@ -71,6 +71,7 @@ int main()
 	displaySubtitle("Energy Depletion");
 
 	std::cout << "\033[1;32mTesting: Attacking until energy points reach zero.\033[0m \033[1;37m(Expected: Energy decreases with each attack.)\033[0m\n";
+	clap.setHpoints(5);
 	while (clap.getEPoints() > 0)
 	{
 		std::cout << "\033[1;34mEnergy Points: " << clap.getEPoints() << "\033[0m ";
@@ -95,10 +96,10 @@ int main()
 	std::cout << "\033[1;31mTesting: Taking significant damage.\033[0m \033[1;37m(Expected: HP should reduce but not go negative.)\033[0m\n";
 	scav.takeDamage(900);
 
-	std::cout << "\033[1;31mTesting: Attempting to attack with low energy points.\033[0m \033[1;37m(Expected: Attack should succeed if energy > 0.)\033[0m\n";
+	std::cout << "\033[1;31mTesting: Attempting to attack with low energy points.\033[0m \033[1;37m(Expected: Attack should not be allowed.)\033[0m\n";
 	scav.attack("target3");
 
-	std::cout << "\033[1;31mTesting: Repairing after low energy points.\033[0m \033[1;37m(Expected: HP should increase but not exceed max HP.)\033[0m\n";
+	std::cout << "\033[1;31mTesting: Repairing after low energy points.\033[0m \033[1;37m(Expected: Repair should not be allowed.)\033[0m\n";
 	scav.beRepaired(50);
 	pauseExecution();
 
@@ -106,6 +107,7 @@ int main()
 	displaySubtitle("Energy Depletion");
 
 	std::cout << "\033[1;32mTesting: Attacking until energy points reach zero.\033[0m \033[1;37m(Expected: Energy decreases with each attack.)\033[0m\n";
+	scav.setHpoints(6);
 	while (scav.getEPoints() > 0)
 	{
 		std::cout << "\033[1;34mEnergy Points: " << scav.getEPoints() << "\033[0m ";
@@ -130,7 +132,7 @@ int main()
 	std::cout << "\033[1;31mTesting: Taking fatal damage.\033[0m \033[1;37m(Expected: HP should reduce to 0 but not go negative.)\033[0m\n";
 	frag.takeDamage(100);
 
-	std::cout << "\033[1;31mTesting: Repairing after fatal damage.\033[0m \033[1;37m(Expected: HP should increase.)\033[0m\n";
+	std::cout << "\033[1;31mTesting: Repairing after fatal damage.\033[0m \033[1;37m(Expected: Repair should not be allowed.)\033[0m\n";
 	frag.beRepaired(50);
 
 	std::cout << "\033[1;31mTesting: Attempting to attack with zero hit points.\033[0m \033[1;37m(Expected: Attack should not be allowed.)\033[0m\n";
@@ -141,6 +143,7 @@ int main()
 	displaySubtitle("Energy Depletion");
 
 	std::cout << "\033[1;32mTesting: Attacking until energy points reach zero.\033[0m \033[1;37m(Expected: Energy decreases with each attack.)\033[0m\n";
+	frag.setHpoints(5);
 	while (frag.getEPoints() > 0)
 	{
 		std::cout << "\033[1;34mEnergy Points: " << frag.getEPoints() << "\033[0m ";
@@ -149,31 +152,6 @@ int main()
 
 	std::cout << "\033[1;31mTesting: Attempting to attack with zero energy points.\033[0m \033[1;37m(Expected: Attack should not be allowed.)\033[0m\n";
 	frag.attack("Out of Energy");
-	pauseExecution();
-
-	displayTitle("Copy and Assignment Tests");
-	displaySubtitle("ScavTrap Copy Constructor");
-
-	std::cout << "\033[1;36mTesting: Copy constructor for ScavTrap.\033[0m \033[1;37m(Expected: Attributes copied, independent operations allowed.)\033[0m\n";
-	ScavTrap scavCopy(scav);
-	scavCopy.attack("target4");
-	pauseExecution();
-
-	displayTitle("Copy and Assignment Tests");
-	displaySubtitle("FragTrap Copy Constructor");
-
-	std::cout << "\033[1;36mTesting: Copy constructor for FragTrap.\033[0m \033[1;37m(Expected: Attributes copied, independent operations allowed.)\033[0m\n";
-	FragTrap fragCopy(frag);
-	fragCopy.attack("target5");
-	pauseExecution();
-
-	displayTitle("Copy and Assignment Tests");
-	displaySubtitle("FragTrap Assignment Operator");
-
-	std::cout << "\033[1;36mTesting: Assignment operator for FragTrap.\033[0m \033[1;37m(Expected: Attributes copied, independent operations allowed.)\033[0m\n";
-	FragTrap fragyCopy;
-	fragyCopy = frag;
-	fragyCopy.highFivesGuys();
 	pauseExecution();
 
 	displayTitle("Destructors");

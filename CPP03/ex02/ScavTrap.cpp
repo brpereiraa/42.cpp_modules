@@ -1,11 +1,11 @@
 #include "./ScavTrap.hpp"
 
-ScavTrap::ScavTrap(): ClapTrap("default"){
+ScavTrap::ScavTrap(): ClapTrap(){
 	this->hpoints = 100;
 	this->epoints = 50;
 	this->apoints = 20;
 
-	std::cout << "Default constructor called" << std::endl;
+	std::cout << "Default ScavTrap constructor called" << std::endl;
 }
 
 ScavTrap::ScavTrap(std::string name): ClapTrap(name){
@@ -27,11 +27,15 @@ ScavTrap::~ScavTrap(){
 }
 
 void ScavTrap::attack(const std::string &name){
-	if (this->epoints == 0 || this->hpoints == 0 ){
+	if (this->epoints == 0 ){
 		std::cout << "ScavTrap has no energy points left to attack" << std::endl;
 		return ;
 	}
-	std::cout << "ScavTrap attacks" << name << ", causing " << this->apoints << " amounts of damage" << std::endl;
+	if (this->hpoints == 0 ){
+		std::cout << "ScavTrap has no health points left to attack" << std::endl;
+		return ;
+	}
+	std::cout << "ScavTrap attacks " << name << ", causing " << this->apoints << " amounts of damage" << std::endl;
 	this->epoints--;
 }
 

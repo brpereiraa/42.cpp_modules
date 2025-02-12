@@ -1,15 +1,17 @@
 #include "./FragTrap.hpp"
 
-FragTrap::FragTrap(): ClapTrap("default"){
+FragTrap::FragTrap(): ClapTrap(){
     this->hpoints = 100;
     this->epoints = 100;
     this->apoints = 30;
+	std::cout << "Default FragTrap constructor called" << std::endl;
 }
 
 FragTrap::FragTrap(std::string name): ClapTrap(name){
     this->hpoints = 100;
     this->epoints = 100;
     this->apoints = 30;
+	std::cout << "FrapTrap " << this->name << " has been created" << std::endl;
 }
 
 FragTrap::~FragTrap(){
@@ -19,7 +21,7 @@ FragTrap::~FragTrap(){
 FragTrap::FragTrap(FragTrap &cp): ClapTrap(cp){
     *this = cp;
 
-    std::cout << "Copy constructor called" << std::endl;
+    std::cout << "FragTRap copy constructor called" << std::endl;
 }
 
 void FragTrap::highFivesGuys(){

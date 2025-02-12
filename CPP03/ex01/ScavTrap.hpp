@@ -5,7 +5,7 @@
 #include <string>
 #include "./ClapTrap.hpp"
 
-class ScavTrap: ClapTrap {
+class ScavTrap: public ClapTrap {
 	private:
 
 	public:
