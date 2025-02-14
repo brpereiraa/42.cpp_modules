@@ -6,7 +6,7 @@
 # include <string>
 # include <iostream>
 
-class Cat: Animal {
+class Cat: public Animal {
     private:
         Brain *brain;
 
@@ -14,9 +14,11 @@ class Cat: Animal {
         Cat();
         ~Cat();
         Cat(const Cat &cp);
-
         Cat &operator=(const Cat &cat);
-        void makeSound();
+
+        void makeSound() const;
+        Brain *getBrain() const;
+ 
 };
 
 #endif

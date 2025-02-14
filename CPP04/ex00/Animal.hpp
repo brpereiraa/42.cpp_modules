@@ -1,5 +1,5 @@
-#ifndef ANIMAL
-# define ANIMAL
+#ifndef ANIMAL_H
+# define ANIMAL_H
 
 #include <iostream>
 #include <string>
@@ -10,12 +10,13 @@ class Animal {
 
     public:
         Animal();
-        Animal(std::string type);
         Animal(const Animal &Animal);
         virtual ~Animal();
-
         Animal &operator=(const Animal &animal);
-        virtual void makeSound();
+
+        virtual void makeSound() const;
+        void setType(const std::string &type);
+        std::string getType() const;
 };
 
 #endif

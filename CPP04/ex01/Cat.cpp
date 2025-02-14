@@ -1,21 +1,21 @@
 #include "./Cat.hpp"
 
-Cat::Cat(){
-    brain = new Brain();
+//---Canonical Form----------
 
-    std::cout << "Default constructor for class Cat has been called" << std::endl;
+Cat::Cat(): Animal(), brain(new Brain()){
+    this->type = "Cat";
+    std::cout << "Cat default constructor called" << std::endl;
 }
 
 Cat::~Cat(){
     delete brain;
-
-    std::cout << "Default destructor for class Cat has been called" << std::endl;
+    std::cout << "Cat destructor called" << std::endl;
 }
 
-Cat::Cat(const Cat &cat){
+Cat::Cat(const Cat &cat): Animal(cat), brain(new Brain(*cat.brain)){
     *this = cat;
 
-    std::cout << "Copy constructor for class Cat has been called" << std::endl;
+    std::cout << "Cat copy constructor called" << std::endl;
 }
 
 Cat &Cat::operator=(const Cat &cat){
@@ -26,6 +26,12 @@ Cat &Cat::operator=(const Cat &cat){
     return (*this);
 }
 
-void Cat::makeSound(){
+//-----------Class methods------------
+
+void Cat::makeSound() const{
     std::cout << "Cat makes cat sound" << std::endl;
+}
+
+Brain *Cat::getBrain() const {
+    return (this->brain);
 }

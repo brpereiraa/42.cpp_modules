@@ -1,17 +1,22 @@
 #include "./Dog.hpp"
 
-Dog::Dog(){
-    std::cout << "Default constructor for class Dog has been called" << std::endl;
+//---Canonical Form----------
+
+Dog::Dog(): Animal(), brain(new Brain()){
+    this->type = "Dog";
+    std::cout << "Dog default constructor called" << std::endl;
 }
 
 Dog::~Dog(){
-    std::cout << "Destructor for class Dog has been called" << std::endl;
+    delete brain;
+
+    std::cout << "Dog destructor called" << std::endl;
 }
 
-Dog::Dog(const Dog &dog){
+Dog::Dog(const Dog &dog): Animal(dog), brain(new Brain(*dog.brain)){
     *this = dog;
 
-    std::cout << "Copy constructor for class Dog has been called" << std::endl;
+    std::cout << "Dog copy constructor called" << std::endl;
 }
 
 Dog &Dog::operator=(const Dog &dog){
@@ -22,6 +27,12 @@ Dog &Dog::operator=(const Dog &dog){
     return (*this);
 }
 
-void Dog::makeSound(){
+//-----------Class methods------------
+
+void Dog::makeSound() const{
     std::cout << "Dog makes dog noise" << std::endl;
+}
+
+Brain *Dog::getBrain() const {
+    return (this->brain);
 }

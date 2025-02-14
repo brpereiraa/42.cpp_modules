@@ -1,11 +1,11 @@
-#ifndef CAT
-# define CAT
+#ifndef CAT_H
+# define CAT_H
 
 # include "./Animal.hpp"
 # include <string>
 # include <iostream>
 
-class Cat: Animal {
+class Cat: public Animal {
     private:
 
 
@@ -13,9 +13,10 @@ class Cat: Animal {
         Cat();
         ~Cat();
         Cat(const Cat &cp);
-
         Cat &operator=(const Cat &cat);
-        void makeSound();
+
+        void makeSound() const;
+ 
 };
 
 #endif

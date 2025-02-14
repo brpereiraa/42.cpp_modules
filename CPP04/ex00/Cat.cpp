@@ -1,17 +1,20 @@
 #include "./Cat.hpp"
 
-Cat::Cat(){
-    std::cout << "Default constructor for class Cat has been called" << std::endl;
+//---Canonical Form----------
+
+Cat::Cat(): Animal(){
+    this->type = "Cat";
+    std::cout << "Cat default constructor called" << std::endl;
 }
 
 Cat::~Cat(){
-    std::cout << "Default destructor for class Cat has been called" << std::endl;
+    std::cout << "Cat destructor called" << std::endl;
 }
 
-Cat::Cat(const Cat &cat){
+Cat::Cat(const Cat &cat): Animal(cat){
     *this = cat;
 
-    std::cout << "Copy constructor for class Cat has been called" << std::endl;
+    std::cout << "Cat copy constructor called" << std::endl;
 }
 
 Cat &Cat::operator=(const Cat &cat){
@@ -22,6 +25,8 @@ Cat &Cat::operator=(const Cat &cat){
     return (*this);
 }
 
-void Cat::makeSound(){
+//-----------Class methods------------
+
+void Cat::makeSound() const{
     std::cout << "Cat makes cat sound" << std::endl;
 }

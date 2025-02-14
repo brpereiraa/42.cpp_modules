@@ -1,17 +1,20 @@
 #include "./Animal.hpp"
 
+//---Canonical Form----------
+
 Animal::Animal(){
-    std::cout << "Default constructor for Animal has been called" << std::endl;
+    this->type = "Animal";
+    std::cout << "Animal default constructor called" << std::endl;
 }
 
 Animal::~Animal(){
-    std::cout << "Destructor for class Animal has been called" << std::endl;
+    std::cout << "Animal destructor called" << std::endl;
 }
 
 Animal::Animal(const Animal &animal){
     *this = animal;
 
-    std::cout << "Copy constructor for class Animal called" << std::endl;
+    std::cout << "Animal copy constructor called" << std::endl;
 }
 
 Animal &Animal::operator=(const Animal &animal){
@@ -22,6 +25,16 @@ Animal &Animal::operator=(const Animal &animal){
     return (*this);
 }
 
-void Animal::makeSound(){
+//-----------Class methods------------
+
+void Animal::makeSound() const{
     std::cout << "Animal makes animal sound" << std::endl;
+}
+
+void Animal::setType(const std::string &type){
+    this->type = type;
+}
+
+std::string Animal::getType(void) const {
+    return this->type;
 }

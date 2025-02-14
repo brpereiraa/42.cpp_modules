@@ -1,7 +1,8 @@
 #include "./Brain.hpp"
 
 Brain::Brain(){
-    this->ideas = new std::string[100];
+    for (int i = 0; i < 100; ++i)
+		ideas[i] = "Default idea";
     
     std::cout << "Default constructor for class Brain has been called" << std::endl;
 }
@@ -11,7 +12,8 @@ Brain::~Brain(){
 }
 
 Brain::Brain(const Brain &brain){
-    *this = brain;
+    for (int i = 0; i < 100; ++i)
+        ideas[i] = brain.ideas[i];
 
     std::cout << "Copy constructor for class Brain has been called" << std::endl;
 }

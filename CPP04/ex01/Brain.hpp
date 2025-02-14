@@ -1,9 +1,12 @@
+#ifndef BRAIN_H
+# define BRAIN_H
+
 #include <string>
 #include <iostream>
 
 class Brain {
     private:
-        std::string *ideas;
+        std::string ideas[100];
 
     public:
         Brain();
@@ -12,3 +15,5 @@ class Brain {
         
         Brain &operator=(const Brain &brain);
 };
+
+#endif
