@@ -3,48 +3,41 @@
 #include "Dog.hpp"
 #include "Cat.hpp"
 
-void	deepCopieTest()
-{
-	Cat* cat = new Cat();
-	Cat* copy = new Cat(*cat);
-	/* Dog* dog = new Dog();
-	Dog* copy = new Dog(*dog); */
-
-	std::cout << std::endl;
-	std::cout << "Deep Copies Test" << std::endl;
-	std::cout << std::endl;
-
-	std::cout << "Cat Brain: " << cat->getBrain() << std::endl;
-	/* std::cout << dog->getBrain() << std::endl; */
-	std::cout << "Copy Cat Brain: " << copy->getBrain() << std::endl;
-
-	std::cout << std::endl;
-	delete cat;
-	/* delete dog; */
-	delete copy;
-}
-
-void	destructorsTest()
-{
-	const AAnimal* animals[4];
-	
-	std::cout << "Constructors and Destructors Test" << std::endl;
-	std::cout << std::endl;
-	
-	for (size_t i = 0; i < 2; i++)
-		animals[i] = new Dog();
-	for (size_t i = 2; i < 4; i++)
-		animals[i] = new Cat();
-	std::cout << std::endl;
-	for (size_t i = 0; i < 4; i++)
-		delete animals[i];
-}
-
 int main()
 {
-	deepCopieTest();
-	std::cout << std::endl;
-	destructorsTest();
-	
-	return (0);
+	{
+		const int size = 10;
+		AAnimal *animals[size];
+
+		for (int i = 0; i < size / 2; ++i)
+			animals[i] = new Dog();
+
+		for (int i = size / 2; i < size; ++i)
+			animals[i] = new Cat();
+
+		for (int i = 0; i < size; ++i)
+			delete animals[i];
+	}
+	{
+		Cat* cat = new Cat();
+		Cat* catCopy = new Cat(*cat);
+		Dog* dog = new Dog();
+		Dog* dogCopy = new Dog(*dog);
+
+		std::cout << std::endl;
+		std::cout << "Deep Copies Test" << std::endl;
+		std::cout << std::endl;
+
+		std::cout << "Cat Brain: " << cat->getBrain() << std::endl;
+		std::cout << dog->getBrain() << std::endl;
+		std::cout << "Copy Cat Brain: " << catCopy->getBrain() << std::endl;
+		std::cout << "Copy Dog Brain: " << dogCopy->getBrain() << std::endl;
+
+		std::cout << std::endl;
+		delete cat;
+		delete dog;
+		delete catCopy;
+		delete dogCopy;
+	}
+	return 0;
 }
