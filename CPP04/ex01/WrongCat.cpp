@@ -19,7 +19,7 @@ WrongCat::WrongCat(const WrongCat &animal): WrongAnimal(animal){
 
 WrongCat &WrongCat::operator=(const WrongCat &animal){
     if (this != &animal){
-        this->type = animal.type;
+        this->type = animal.getType();
     }
 
     return (*this);

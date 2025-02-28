@@ -20,7 +20,7 @@ Cat::Cat(const Cat &cat): Animal(cat), brain(new Brain(*cat.brain)){
 
 Cat &Cat::operator=(const Cat &cat){
     if (this != &cat){
-        this->type = cat.type;
+        this->type = cat.getType();
     }
 
     return (*this);

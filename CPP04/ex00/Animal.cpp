@@ -19,7 +19,7 @@ Animal::Animal(const Animal &animal){
 
 Animal &Animal::operator=(const Animal &animal){
     if (this != &animal){
-        this->type = animal.type;
+        this->type = animal.getType();
     }
 
     return (*this);
