@@ -2,7 +2,7 @@
 
 //---Canonical Form----------
 
-Cat::Cat(): AAnimal(), brain(new Brain()){
+Cat::Cat(): brain(new Brain()){
     this->type = "Cat";
     std::cout << "Cat default constructor called" << std::endl;
 }

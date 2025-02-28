@@ -2,7 +2,7 @@
 
 //---Canonical Form----------
 
-Dog::Dog(): AAnimal(), brain(new Brain()){
+Dog::Dog(): brain(new Brain()){
     this->type = "Dog";
     std::cout << "Dog default constructor called" << std::endl;
 }

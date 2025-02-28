@@ -2,7 +2,7 @@
 
 //---Canonical Form----------
 
-Cat::Cat(): Animal(), brain(new Brain()){
+Cat::Cat(): brain(new Brain()){
     this->type = "Cat";
     std::cout << "Cat default constructor called" << std::endl;
 }
@@ -28,7 +28,7 @@ Cat &Cat::operator=(const Cat &cat){
 
 //-----------Class methods------------
 
-void Cat::makeSound() const{
+void Cat::makeSound() const {
     std::cout << "Cat makes cat sound" << std::endl;
 }
 
