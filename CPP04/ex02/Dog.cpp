@@ -21,7 +21,7 @@ Dog::Dog(const Dog &dog): AAnimal(dog), brain(new Brain(*dog.brain)){
 
 Dog &Dog::operator=(const Dog &dog){
     if (this != &dog){
-        this->type = dog.type;
+        this->type = dog.getType();
     }
     
     return (*this);
