@@ -6,9 +6,6 @@
 # include "WrongAnimal.hpp"
 
 class WrongCat : public WrongAnimal {
-    protected:
-        std::string type;
-
     public:
         WrongCat();
         ~WrongCat();

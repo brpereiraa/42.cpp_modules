@@ -5,6 +5,15 @@
 
 int main()
 {
+	Dog basic;
+	{
+		std::cout << "\n\nMain tests\n\n" << std::endl;
+
+		Dog tmp = basic;
+		std::cout << "\n\n" << tmp.getBrain() << std::endl;
+		std::cout << "\n\n" << basic.getBrain() << "\n\n" << std::endl;
+	}
+
 	{
 		const int size = 10;
 		Animal *animals[size];

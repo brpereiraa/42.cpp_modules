@@ -12,7 +12,7 @@ class Cat: public AAnimal {
 
     public:
         Cat();
-        ~Cat();
+        virtual ~Cat();
         Cat(const Cat &cp);
         Cat &operator=(const Cat &cat);
 

@@ -23,7 +23,6 @@ Dog &Dog::operator=(const Dog &dog){
     if (this != &dog){
         this->type = dog.getType();
     }
-    
     return (*this);
 }
 

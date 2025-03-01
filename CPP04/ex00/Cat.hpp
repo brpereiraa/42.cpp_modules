@@ -8,7 +8,6 @@
 class Cat: public Animal {
     private:
 
-
     public:
         Cat();
         ~Cat();

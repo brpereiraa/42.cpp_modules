@@ -22,7 +22,6 @@ Cat &Cat::operator=(const Cat &cat){
     if (this != &cat){
         this->type = cat.getType();
     }
-
     return (*this);
 }
 
