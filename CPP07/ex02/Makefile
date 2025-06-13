@@ -1,4 +1,4 @@
-NAME = template
+NAME = array
 
 SRC = ./main.cpp
 OBJ = $(SRC:.cpp=.o)
