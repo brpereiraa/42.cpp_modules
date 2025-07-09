@@ -3,10 +3,13 @@
 
 # include <string>
 # include <iostream>
+# include "Form.hpp"
+
+class Form;
 
 class Bureaucrat {
 	private:
-		std::string name;
+		const std::string name;
 		int grade;
 
 	public:
@@ -17,13 +20,13 @@ class Bureaucrat {
 
 		Bureaucrat &operator=(const Bureaucrat &bureau);
 
-    void Increment(); 
-    void Decrement(); 
-    void signForm(); 
+		void incrementGrade(); 
+		void decrementGrade();
+		void signForm(Form &form); 
 
-    const std::string getName() const;
-    const int         getGrade() const;
-		
+		const std::string getName() const;
+		int         getGrade() const;
+			
 		class GradeTooHighException : public std::exception {
 			public:
 				const char *what() const throw();
