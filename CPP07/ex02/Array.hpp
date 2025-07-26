@@ -1,5 +1,6 @@
-#ifndef ARRAY_HPP
-# define ARRAY_HPP
+#pragma once
+
+#include <iostream>
 
 template <typename T>
 class Array {
@@ -7,16 +8,15 @@ class Array {
                 unsigned int len;
                 T *arr;
 
-
         public:
                Array();
                Array(unsigned int n);
                Array(const Array &cp);
                ~Array();
 
-               unsigned int size();
+               unsigned int size() const;
                Array &operator=(const Array &cp);
                T &operator[](unsigned int index);
 };
 
-#endif
+#include "Array.tpp"
