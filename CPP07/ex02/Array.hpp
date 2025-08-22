@@ -1,6 +1,8 @@
 #ifndef ARRAY_HPP
 # define ARRAY_HPP
 
+#include <iostream>
+
 template <typename T>
 class Array {
         private:
@@ -14,7 +16,7 @@ class Array {
                Array(const Array &cp);
                ~Array();
 
-               unsigned int size();
+               unsigned int size() const;
                Array &operator=(const Array &cp);
                T &operator[](unsigned int index);
 };
