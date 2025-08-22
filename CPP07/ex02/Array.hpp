@@ -1,5 +1,6 @@
-#ifndef ARRAY_HPP
-# define ARRAY_HPP
+#pragma once
+
+#include <iostream>
 
 #include <iostream>
 
@@ -8,7 +9,6 @@ class Array {
         private:
                 unsigned int len;
                 T *arr;
-
 
         public:
                Array();
@@ -21,4 +21,4 @@ class Array {
                T &operator[](unsigned int index);
 };
 
-#endif
+#include "Array.tpp"

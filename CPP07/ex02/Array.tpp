@@ -1,5 +1,4 @@
-#ifndef ARRAY_TPP
-# define ARRAY_TPP
+#pragma once
 
 #include "Array.hpp"
 
@@ -42,7 +41,6 @@ unsigned int Array<T>::size() const{
 
 template <typename T>
 T &Array<T>::operator[](unsigned int index){
-
 }
 
 template <typename T>
@@ -56,6 +54,6 @@ Array<T> &Array<T>::operator=(const Array<T> &cp){
             this->arr[i] = cp.arr[i];
 
     }
-}
 
-#endif
+    return *this;
+}
