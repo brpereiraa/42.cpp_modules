@@ -34,7 +34,7 @@ void AForm::execute(Bureaucrat const &executor) const{
 	try {
 		executor.executeForm(*this);
 	} catch (const std::exception &e) {
-		std::cout << "Form not signed" << std::endl;
+		std::cout << e.what() << std::endl;
 	}
 
 }

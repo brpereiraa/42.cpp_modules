@@ -35,4 +35,5 @@ void ShrubberyCreationForm::executor() const {
 			<< "         |  |\n"
 			<< "         |  |\n"
 			<< "  ______/____\\____\n";
+	mFile.close();
 }

@@ -1,6 +1,6 @@
-NAME = form
+NAME = forms
 
-SRC =	Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp \
+SRC =	Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp \
 		main.cpp
 
 OBJ = $(SRC:.cpp=.o)

@@ -1,6 +1,7 @@
 #include "AForm.hpp"
-#include <fstream>
-
+# include <ctime>
+# include <cstdlib>
+	
 class RobotomyRequestForm : public AForm {
 	private:
 		static const int signGrade = 145;
