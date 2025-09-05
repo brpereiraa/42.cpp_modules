@@ -22,3 +22,9 @@ void PresidentialPardonForm::executor() const {
 	std::cout << this->getTarget()
 			  << " has been pardoned by Zaphod Beeblebrox." << std::endl;
 }
+
+//------------Override Operators
+PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPardonForm &other){
+    (void)other;
+    return *this;
+}

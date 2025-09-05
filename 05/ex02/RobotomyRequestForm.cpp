@@ -30,3 +30,9 @@ void RobotomyRequestForm::executor() const {
 	else
 		std::cout << "Robotomy failed" << std::endl;
 }
+
+//------------Override Operators
+RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &other){
+    (void)other;
+    return *this;
+}

@@ -1,4 +1,5 @@
 #include "ShrubberyCreationForm.hpp"
+#include <random>
 
 //------------Constructors
 ShrubberyCreationForm::ShrubberyCreationForm() : AForm("Default", signGrade, execGrade, "Default"){
@@ -36,4 +37,10 @@ void ShrubberyCreationForm::executor() const {
 			<< "         |  |\n"
 			<< "  ______/____\\____\n";
 	mFile.close();
+}
+
+//------------Override Operators
+ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationForm &other){
+    (void)other;
+    return *this;
 }
