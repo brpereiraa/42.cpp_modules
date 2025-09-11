@@ -1,47 +1,54 @@
 #include "Form.hpp"
 
-Form::Form(): name("default"), signGrade(0), execGrade(0){
-        this->flag = false;
+//------------Constructors
+Form::Form() : name("Default"), signGrade(1), execGrade(1), sign(false){
+	std::cout << "Default constructor for form called" << std::endl;
 }
 
-Form::Form(std::string name, int signGrade, int execGrade): name(name), signGrade(signGrade), execGrade(execGrade) {
-        this->flag = false;
+Form::Form(std::string name, int signGrade, int execGrade) : name(name), signGrade(signGrade), execGrade(execGrade), sign(false) {
+	std::cout << "Named constructor for form called" << std::endl;
 }
 
-Form::Form(const Form &form): name(form.getName()), signGrade(form.getSignGrade()), execGrade(form.getExecGrade()){
-    this->flag = form.getFlag();
+Form::Form(const Form &other) : name(other.getName()), signGrade(other.getSignGrade()), execGrade(other.getExecGrade()), sign(false) { 
+	std::cout << "Copy constructor for form called" << std::endl;
 }
 
-Form::~Form(){}
+Form::~Form() { std::cout << "Default constructor called" << std::endl; }
 
-Form &Form::operator=(const Form &form){
-    if (this != &form)
-        this->flag = form.flag;
-    return *this;
+//------------Getters
+int			Form::getSignGrade() const { return this->signGrade; }
+int			Form::getExecGrade() const { return this->execGrade; }
+bool		Form::getSign() const { return this->sign; }
+std::string	Form::getName() const { return this->name; }
+
+//------------Methods
+void Form::beSigned(Bureaucrat &other) {
+	if (other.getGrade() > this->signGrade) throw(GradeTooLowException());
+
+	this->sign = true;
 }
 
-const std::string Form::getName() const { return this->name; }
-bool Form::getFlag() const { return this->flag; }
-int Form::getExecGrade() const { return this->execGrade; }
-int Form::getSignGrade() const { return this->signGrade; }
-
-void Form::beSigned(Bureaucrat &bureau){
-    if (bureau.getGrade() > this->signGrade) {
-        throw GradeTooLowException();
-    }
-    this->flag = true;
-}
-
+//------------Exceptions
 const char *Form::GradeTooHighException::what() const throw() {
-    return ("Grade is too high");
+	return "Grade too high exception" ;	
 }
 
 const char *Form::GradeTooLowException::what() const throw() {
-    return ("Grade is too low");
+	return "Grade too low exception" ;	
 }
 
-std::ostream &operator<<(std::ostream &out, const Form &obj){
-    out << "Form: " << obj.getName() << ", Sign Grade: " << obj.getSignGrade() 
-        << ", Exec Grade: " << obj.getExecGrade() << ", Signed: " << (obj.getFlag() ? "Yes" : "No");
-    return out;
+//------------Override Operators
+Form &Form::operator=(const Form &other){
+	if (this == &other) return *this;
+
+	this->sign = other.getSign();
+
+	return *this;
+}
+
+std::ostream &operator<<(std::ostream &out, const Form &other){
+	out << other.getName() << ", Form grade " << other.getSign()
+		<< "\nSign Grade: " << other.getSignGrade()
+		<< "\nExec Grade: " << other.getExecGrade();
+	return out;
 }

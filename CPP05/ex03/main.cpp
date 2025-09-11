@@ -9,10 +9,11 @@ int main()
 	AForm *ptr;
 	Bureaucrat bender("Bender", 1);
 	const std::string forms[4] = {
-	"shrubbery creation",
-	"robotomy request",
-	"presidential pardon",
-	"random form"};
+		"shrubbery creation",
+		"robotomy request",
+		"presidential pardon",
+		"random form"
+	};
 
 	for (int i = 0; i < 4; i++) {	
 		std::cout << std::endl;

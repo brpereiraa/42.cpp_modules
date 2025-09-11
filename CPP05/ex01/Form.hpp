@@ -1,44 +1,43 @@
-#ifndef FORM_HPP
-# define FORM_HPP
+#pragma once
 
-# include <string>
-# include "Bureaucrat.hpp"
+#include <string>
+#include <iostream>
+#include "Bureaucrat.hpp"
 
 class Bureaucrat;
 
 class Form {
-        private:
-            bool flag;
-            const std::string name;
-            const int signGrade;
-            const int execGrade;
+	private:
+		const std::string name;
+		const int signGrade;
+		const int execGrade;
+		bool sign;
 
-        public:
-            Form();
-            Form(std::string name, int signGrade, int execGrade);
-            Form(const Form &obj);
-            ~Form();
+	public:
+		Form();
+		Form(std::string name, int execGrade, int signGrade);
+		~Form();
+		Form(const Form &other);
 
-            Form &operator=(const Form &form);
+		std::string	getName() const;
+		bool		getSign() const;
+		int			getSignGrade() const;
+		int			getExecGrade() const;
+		
+		void beSigned(Bureaucrat &other);
 
-            const std::string getName() const;
-            bool getFlag() const;
-            int getExecGrade() const;
-            int getSignGrade() const;
+		Form &operator=(const Form &other);
 
-            void beSigned(Bureaucrat &bureau);
+		class GradeTooHighException : public std::exception {
+			public:
+				const char *what() const throw();
+		};
 
-            class GradeTooHighException : public std::exception {
-                public:
-                    const char *what() const throw();
-            };
-
-            class GradeTooLowException : public std::exception { 
-                public:
-                    const char *what() const throw();
-            };
+		class GradeTooLowException : public std::exception {
+			public:
+				const char *what() const throw();
+		};
+		
 };
 
-std::ostream &operator<<(std::ostream &out, const Form &obj);
-
-#endif
+std::ostream &operator<<(std::ostream o, const Bureaucrat &other);

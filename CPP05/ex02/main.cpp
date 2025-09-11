@@ -65,6 +65,9 @@ void bureaucratExecutor()
 	std::cout << std::endl;
 	try
 	{
+		shrubbery->executor();
+		robotomy->executor();
+		presidential->executor();
 		shrubbery->beSigned(john);
 		robotomy->beSigned(john);
 		presidential->beSigned(john);

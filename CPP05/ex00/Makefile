@@ -1,24 +1,24 @@
-NAME = bureaucrat 
+NAME = throw
 
-SRC = ./Bureaucrat.cpp ./main.cpp
+SRC =	Bureaucrat.cpp \
+		main.cpp
+
 OBJ = $(SRC:.cpp=.o)
 
-CPPFLAGS = -Wextra -Werror -Wall -std=c++98
+CFLAGS = -Wall -Werror -Wextra -std=c++98
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	c++ $(CPPFLAGS) $(OBJ) -o $(NAME)
+		c++ -o $(NAME) $(OBJ)
 
 %.o: %.cpp
-	c++ $(CPPFLAGS) -c $< -o $@
-
-re: fclean all
+	c++ $(CFLAGS) -c $< -o $@
 	
-clean:
-	rm -fr $(OBJ)
+clean: 
+		rm -rf $(OBJ)
 
 fclean: clean
-	rm -fr $(NAME)
+		rm -f $(NAME)
 
-SILENT:	
+re: fclean all

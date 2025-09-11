@@ -10,7 +10,8 @@ class ScalarConverter {
 				~ScalarConverter();
 				ScalarConverter(const ScalarConverter &scala);
 
-                void isPrint(const std::string &str);
+        static int isPrint(const std::string &str);
+				static int isFloat(const std::string &str);
 
         public:
                 static void convert(const std::string &str); 
