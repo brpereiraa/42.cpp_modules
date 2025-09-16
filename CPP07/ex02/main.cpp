@@ -1,6 +1,4 @@
-#include "Array.tpp"
 #include <iostream>
-#include <stdexcept>
 
 #define blue "\033[34m"
 #define red "\033[31m"
@@ -12,7 +10,6 @@
 
 #include "Array.hpp"
 #include <iostream>
-#include <stdexcept>
 
 #define blue "\033[34m"
 #define red "\033[31m"
