@@ -1,9 +1,14 @@
-NAME = Scala
+NAME = dynamic 
 
-SRC = main.cpp ScalarConverter.cpp
+SRC =	A.cpp \
+		B.cpp \
+		C.cpp \
+		Base.cpp \
+		main.cpp
+
 OBJ = $(SRC:.cpp=.o)
 
-CFLAGS = -Wall -Werror -Wextra -std=c++98
+CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 all: $(NAME)
 

@@ -1,5 +1,5 @@
 #include "Base.hpp"
 
 Base::~Base() {
-    // Destructor implementation (if needed)
+	std::cout << "Base destructor called" << std::endl;
 }

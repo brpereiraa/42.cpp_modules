@@ -1,6 +1,8 @@
 #pragma once 
 
-#include <cstdint>
+#include <iostream>
+#include <string>
+#include <stdint.h>
 #include "Data.hpp"
 
 

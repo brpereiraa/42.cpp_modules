@@ -10,5 +10,4 @@ class Data {
         Data	&operator=(const Data &obj);
 
         int nbr;
-
 };
