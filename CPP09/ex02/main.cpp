@@ -15,12 +15,6 @@ int toVector(int ac, char **av, std::vector<int> *vec){
 		vec->push_back(std::atoi(av[i]));
 	}
 
-	std::vector<int>::iterator it;
-
-	for (it = vec->begin(); it != vec->end(); it++){
-		std::cout << *it << std::endl;
-	}
-
 	return (1);
 }
 
@@ -30,6 +24,11 @@ int main(int ac, char **av){
 
 	PmergeMe::sortVector(&vec);	
 
+	std::vector<int>::iterator it;
+
+	for (it = vec.begin(); it != vec.end(); it++){
+		std::cout << *it << std::endl;
+	}
 
 	return 0;
 }
