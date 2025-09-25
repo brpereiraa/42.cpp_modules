@@ -8,7 +8,6 @@ Array<T>::Array(){
     this->arr = NULL;
 
     std::cout << "Array constructor" << std::endl;
-    arr = new T[0];
 }
 
 template <typename T>
