@@ -12,6 +12,8 @@ class PmergeMe {
 		PmergeMe(const PmergeMe &cp);
 		~PmergeMe();
 
+        static int swap(std::vector<int> *vec, int index, int len);
+
 
 	public:
 		static int printTime();
