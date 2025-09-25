@@ -1,11 +1,17 @@
-#ifndef ITER_HPP
-# define ITER_HPP
+#pragma once
+#include <iostream>
+#include <cstdlib>
 
-template <typename T, typename F>
-void iter(T arr, int len, F funct) {
+template <typename T>
+void iter(T *arr, int len, void(*function)(const T &arr)) {
         for (int i = 0; i < len; i++){
-                funct(arr[i]);
+                function(arr[i]);
         }
 }
 
-#endif 
+template <typename T>
+void iter(T *arr, int len, void(*function)(T &arr)) {
+        for (int i = 0; i < len; i++){
+                function(arr[i]);
+        }
+}

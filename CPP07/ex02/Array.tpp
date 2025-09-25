@@ -46,6 +46,13 @@ T &Array<T>::operator[](unsigned int index){
 }
 
 template <typename T>
+T Array<T>::operator[](unsigned int index) const{
+    if (index >= len)
+        throw std::out_of_range("Index out of bounds");
+    return arr[index];
+}
+
+template <typename T>
 Array<T> &Array<T>::operator=(const Array<T> &cp){
     if (this != &cp){
         if (this->arr)
