@@ -1,6 +1,7 @@
 #include "Span.hpp"
 #include <climits>
 #include <algorithm>
+#include <stdexcept>
 #include <vector>
 
 Span::Span(unsigned int len) : len(len){}
@@ -15,7 +16,7 @@ std::vector<int> Span::getArray() const { return this->arr; }
 
 void Span::addNumber(int nbr){
     if (this->arr.size() >= this->len)
-        return ;
+        throw std::overflow_error("Too many numbers added\n");
     this->arr.push_back(nbr);
 }
 
@@ -48,9 +49,5 @@ unsigned int Span::shortestSpan() {
 
 const char *Span::EmptyArrayException::what() const throw() {
     return ("Array needs to have more than 1 member.");
-}
-
-const char *Span::OutOfBoundsException::what() const throw() {
-    return ("Error, tried to access position out of bounds.");
 }
 

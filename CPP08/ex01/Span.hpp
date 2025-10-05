@@ -23,10 +23,6 @@ class Span {
         unsigned int shortestSpan();
         unsigned int longestSpan();
 
-        class OutOfBoundsException : public std::exception {
-            const char *what() const throw();
-        };
-
         class EmptyArrayException : public std::exception {
             const char *what() const throw();
         };

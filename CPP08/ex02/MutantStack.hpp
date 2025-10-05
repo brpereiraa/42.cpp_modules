@@ -8,19 +8,15 @@ template<typename T>
 class MutantStack : public std::stack<T, std::deque<T> >
 {
 public:
-    // Iterator typedefs - expose the underlying container's iterators
     typedef typename std::deque<T>::iterator iterator;
     typedef typename std::deque<T>::const_iterator const_iterator;
     typedef typename std::deque<T>::reverse_iterator reverse_iterator;
     typedef typename std::deque<T>::const_reverse_iterator const_reverse_iterator;
 
-    // Default constructor
     MutantStack() : std::stack<T, std::deque<T> >() {}
 
-    // Copy constructor
     MutantStack(const MutantStack& other) : std::stack<T, std::deque<T> >(other) {}
 
-    // Assignment operator
     MutantStack& operator=(const MutantStack& other) {
         if (this != &other) {
             std::stack<T, std::deque<T> >::operator=(other);
