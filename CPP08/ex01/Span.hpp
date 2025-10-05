@@ -2,6 +2,8 @@
 
 #include <exception>
 #include <vector>
+#include <iostream>
+#include <algorithm>
 
 class Span {
     private:
@@ -14,16 +16,12 @@ class Span {
         Span(const Span &other);
         ~Span();
 
-        const std::vector<int> getArray() const;
-        const unsigned int getLen() const;
+        std::vector<int> getArray() const;
+        unsigned int getLen() const;
         
         void addNumber(int nbr);
         unsigned int shortestSpan();
         unsigned int longestSpan();
-
-        class SpaceException : public std::exception {
-            const char *what() const throw();
-        };
 
         class OutOfBoundsException : public std::exception {
             const char *what() const throw();

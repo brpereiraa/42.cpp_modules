@@ -1,4 +1,5 @@
 #include "Span.hpp"
+#include <climits>
 #include <algorithm>
 #include <vector>
 
@@ -8,8 +9,8 @@ Span::~Span(){}
 Span::Span(const Span &other) : len(other.getLen()) {} 
 
 
-const unsigned int Span::getLen() const { return this->len; }
-const std::vector<int> Span::getArray() const { return this->arr; }
+unsigned int Span::getLen() const { return this->len; }
+std::vector<int> Span::getArray() const { return this->arr; }
 
 
 void Span::addNumber(int nbr){
@@ -18,39 +19,27 @@ void Span::addNumber(int nbr){
     this->arr.push_back(nbr);
 }
 
-unsigned int Span::longestSpan(){
+unsigned int Span::longestSpan() {
     if (this->arr.size() < 2)
         throw EmptyArrayException();
-    
-    unsigned int span, temp;
 
     std::vector<int> data = this->arr;
     std::sort(data.begin(), data.end());
-    
-    span = 0;
-    for (int i = 1; i < data.size(); i++){
-        temp = data.at(i) - data.at(i - 1);
-        if (temp > span)
-            span = temp;
-    }
-
-    return span;
+    return static_cast<unsigned int>(data.back() - data.front());
 }
 
-unsigned int Span::shortestSpan(){
+unsigned int Span::shortestSpan() {
     if (this->arr.size() < 2)
         throw EmptyArrayException();
-    
-    unsigned int span, temp;
 
     std::vector<int> data = this->arr;
     std::sort(data.begin(), data.end());
-    
-    span = 0;
-    for (int i = 1; i < data.size(); i++){
-        temp = data.at(i) - data.at(i - 1);
-        if (temp > span)
-            span = temp;
+
+    unsigned int span = UINT_MAX;
+    for (size_t i = 1; i < data.size(); ++i) {
+        unsigned int diff = static_cast<unsigned int>(data[i] - data[i - 1]);
+        if (diff < span)
+            span = diff;
     }
 
     return span;
